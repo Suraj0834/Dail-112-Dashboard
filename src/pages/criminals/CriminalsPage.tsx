@@ -474,10 +474,10 @@ const FaceRecognitionPanel: React.FC = () => {
                                 {result.dangerLevel && (
                                     <Typography sx={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>Danger: <Box component="span" sx={{ color: DANGER_META[result.dangerLevel as DangerLevel]?.color ?? '#FF1744', fontWeight: 700 }}>{result.dangerLevel}</Box></Typography>
                                 )}
-                                {result.crimeHistory?.length > 0 && (
+                                {(result.crimeHistory?.length ?? 0) > 0 && (
                                     <Box mt={1}>
                                         <Typography sx={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: 0.8, mb: 0.5 }}>Known Offenses</Typography>
-                                        {result.crimeHistory.slice(0, 3).map((h: string, i: number) => (
+                                        {result.crimeHistory?.slice(0, 3).map((h: string, i: number) => (
                                             <Typography key={i} sx={{ fontSize: 11, color: 'rgba(255,255,255,0.45)' }}>• {h}</Typography>
                                         ))}
                                     </Box>

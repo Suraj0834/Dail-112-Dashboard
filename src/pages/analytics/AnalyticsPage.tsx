@@ -287,7 +287,7 @@ export const AnalyticsPage: React.FC = () => {
 
             {/* ── Row 1: Trends + Status Donut ───────────────────────────────── */}
             <Grid container spacing={3} sx={{ mb: 3 }}>
-                <Grid item xs={12} md={8}>
+                <Grid size={{ xs: 12, md: 8 }}>
                     <ChartPanel
                         title="Case Trends"
                         subtitle={`Filed vs. resolved — ${range} view`}
@@ -321,7 +321,7 @@ export const AnalyticsPage: React.FC = () => {
                     </ChartPanel>
                 </Grid>
 
-                <Grid item xs={12} md={4}>
+                <Grid size={{ xs: 12, md: 4 }}>
                     <ChartPanel
                         title="Case Status"
                         subtitle={`Distribution — ${range} view`}
@@ -343,7 +343,7 @@ export const AnalyticsPage: React.FC = () => {
                                             <Cell key={i} fill={STATUS_COLORS[entry.status] ?? COLORS.ACCENT} style={{ filter: `drop-shadow(0px 0px 6px ${STATUS_COLORS[entry.status]}66)` }} />
                                         ))}
                                     </Pie>
-                                    <Tooltip contentStyle={TT_STYLE} itemStyle={{ fontWeight: 800 }} formatter={(val: number) => [val, 'Cases']} />
+                                    <Tooltip contentStyle={TT_STYLE} itemStyle={{ fontWeight: 800 }} formatter={(val) => [val, 'Cases']} />
                                 </PieChart>
                             </ResponsiveContainer>
 
@@ -360,7 +360,7 @@ export const AnalyticsPage: React.FC = () => {
 
             {/* ── Row 2: Category Bar + Day-of-Week Radar ──────────────────── */}
             <Grid container spacing={3} sx={{ mb: 3 }}>
-                <Grid item xs={12} md={7}>
+                <Grid size={{ xs: 12, md: 7 }}>
                     <ChartPanel
                         title="Crime Category Distribution"
                         subtitle={`Incidents by category — ${range} view`}
@@ -391,7 +391,7 @@ export const AnalyticsPage: React.FC = () => {
                     </ChartPanel>
                 </Grid>
 
-                <Grid item xs={12} md={5}>
+                <Grid size={{ xs: 12, md: 5 }}>
                     <ChartPanel
                         title="Day-of-Week Pattern"
                         subtitle="Incidents by day — identifies peak crime days"

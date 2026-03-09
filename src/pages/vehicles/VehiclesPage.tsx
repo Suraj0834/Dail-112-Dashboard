@@ -10,7 +10,7 @@ import {
     InputLabel, Alert
 } from '@mui/material';
 import {
-    Search as SearchIcon, Close as CloseIcon, Add as AddIcon,
+    Search as SearchIcon, Close as CloseIcon, Add as AddIcon, Edit as EditIcon,
     Refresh as RefreshIcon, FilterList as FilterIcon,
     Warning as WarningIcon, DirectionsCar as CarIcon,
     TwoWheeler as BikeIcon, LocalShipping as TruckIcon,

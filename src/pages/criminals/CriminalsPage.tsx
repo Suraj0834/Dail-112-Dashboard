@@ -132,8 +132,8 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, icon, color, sub, del
 );
 
 // ── API base URL helper ───────────────────────────────────────────────────────
-const API = 'http://localhost:5001';
-const photoUrl = (p?: string) => p ? `${API}${p}` : undefined;
+const API = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5001';
+const photoUrl = (p?: string) => p ? (p.startsWith('http') ? p : `${API}${p}`) : undefined;
 
 // ── Criminal card row (list view) ─────────────────────────────────────────────
 const CriminalCard: React.FC<{ c: Criminal; index: number; onClick: () => void; selected: boolean }> = ({ c, index, onClick, selected }) => {

@@ -83,7 +83,7 @@ const safeDist = (v: unknown) => { const d = safeDate(v); return d ? formatDista
 const safeFmt  = (v: unknown, fmt: string) => { const d = safeDate(v); return d ? format(d, fmt) : '—'; };
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
-const photoUrl = (p?: string | null) => p ? `http://localhost:5001${p}` : undefined;
+const photoUrl = (p?: string | null) => p ? (p.startsWith('http') ? p : `${(import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5001')}${p}`) : undefined;
 
 // ── AnimNum ────────────────────────────────────────────────────────────────
 const AnimNum: React.FC<{ value: number; duration?: number }> = ({ value, duration = 1 }) => {

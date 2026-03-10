@@ -209,12 +209,12 @@ export const AnalyticsPage: React.FC = () => {
     const [range, setRange] = useState<Range>('months');
 
     // ── Queries ─────────────────────────────────────────────────────────────────
-    const { data: statsResp } = useQuery({ queryKey: ['dashboard-stats'], queryFn: () => dashboardService.getStats(), staleTime: 60_000 });
-    const { data: trendsResp, isLoading: trendsLoading } = useQuery({ queryKey: ['trends', range], queryFn: () => dashboardService.getMonthlyTrends(range) });
-    const { data: distResp, isLoading: distLoading } = useQuery({ queryKey: ['crime-distribution', range], queryFn: () => dashboardService.getCrimeDistribution(range) });
-    const { data: statusResp, isLoading: statusLoading } = useQuery({ queryKey: ['status-breakdown', range], queryFn: () => dashboardService.getStatusBreakdown(range) });
-    const { data: dayResp, isLoading: dayLoading } = useQuery({ queryKey: ['day-breakdown', range], queryFn: () => dashboardService.getDayBreakdown(range) });
-    const { data: hotspotsResp } = useQuery({ queryKey: ['ai-hotspots'], queryFn: () => aiService.getHotspots(), refetchInterval: 120_000 });
+    const { data: statsResp } = useQuery({ queryKey: ['dashboard-stats'], queryFn: () => dashboardService.getStats(), staleTime: 5 * 60_000 });
+    const { data: trendsResp, isLoading: trendsLoading } = useQuery({ queryKey: ['trends', range], queryFn: () => dashboardService.getMonthlyTrends(range), staleTime: 5 * 60_000 });
+    const { data: distResp, isLoading: distLoading } = useQuery({ queryKey: ['crime-distribution', range], queryFn: () => dashboardService.getCrimeDistribution(range), staleTime: 5 * 60_000 });
+    const { data: statusResp, isLoading: statusLoading } = useQuery({ queryKey: ['status-breakdown', range], queryFn: () => dashboardService.getStatusBreakdown(range), staleTime: 5 * 60_000 });
+    const { data: dayResp, isLoading: dayLoading } = useQuery({ queryKey: ['day-breakdown', range], queryFn: () => dashboardService.getDayBreakdown(range), staleTime: 5 * 60_000 });
+    const { data: hotspotsResp } = useQuery({ queryKey: ['ai-hotspots'], queryFn: () => aiService.getHotspots(), staleTime: 10 * 60_000, refetchInterval: 120_000 });
 
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_KEY || '',

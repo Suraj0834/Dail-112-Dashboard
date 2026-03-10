@@ -14,7 +14,8 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      staleTime: 30_000,
+      staleTime: 3 * 60_000,   // 3 min — serve cached data on navigation
+      gcTime: 10 * 60_000,     // 10 min — keep data in memory after unmount
       refetchOnWindowFocus: false,
     },
   },
